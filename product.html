@@ -35,23 +35,65 @@
       <!-- Product Image + Info -->
       <div class="text-center">
         <img src="./assets/product.png" alt="Product image" class="w-full max-w-md mx-auto rounded shadow" />
-        <h2 class="text-3xl font-semibold mt-6">Template X</h2>
+        <h2 class="text-3xl font-semibold mt-6">Product Demo</h2>
         <p class="text-gray-600 mt-2">This is a mock product used to test analytics and conversion tracking.</p>
       </div>
   
-      <!-- Checkout Form -->
-      <div>
-        <h3 class="text-2xl font-semibold mb-4">Try the Checkout Flow</h3>
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSefZo5jk5dCv5sZ8ylB9Opc9T8HTDpC9GnMj3hjb3jlkZBqtg/viewform?embedded=true" 
-          width="100%" 
-          height="483" 
-          frameborder="0" 
-          marginheight="0" 
-          marginwidth="0">
-          Loading…
-        </iframe>
-      </div>
+      <!-- Demo Request Section -->
+<section class="py-16 bg-white">
+  <div class="max-w-2xl mx-auto px-4 text-center">
+    <h3 class="text-3xl font-semibold mb-2">Request a Demo</h3>
+    <p class="text-gray-600 mb-6">Want a closer look? Let us walk you through it — no pressure.</p>
+
+    <form id="demo-request-form" class="space-y-4 max-w-md mx-auto">
+      <input 
+        type="text" 
+        name="name" 
+        placeholder="Your name" 
+        required 
+        class="w-full border border-gray-300 rounded px-4 py-2"
+      />
+      <input 
+        type="email" 
+        name="email" 
+        placeholder="Email address" 
+        required 
+        class="w-full border border-gray-300 rounded px-4 py-2"
+      />
+      <button 
+        type="submit" 
+        class="w-full bg-blue-600 text-white py-2 rounded"
+      >
+        Get the Demo
+      </button>
+    </form>
+
+    <div id="thank-you-message-demo" class="hidden text-green-600 mt-6 font-medium">
+      ✅ Thanks! We'll be in touch soon.
+    </div>
+  </div>
+
+  <script>
+    const demoForm = document.getElementById('demo-request-form');
+    const demoThankYou = document.getElementById('thank-you-message-demo');
+
+    demoForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Hide form & show thank you
+      demoForm.classList.add('hidden');
+      demoThankYou.classList.remove('hidden');
+
+      // Push to dataLayer for GTM
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'form_submit',
+        form_id: 'demo-request-form'
+      });
+    });
+  </script>
+</section>
+
   
     </div>
   </section>
