@@ -61,72 +61,62 @@
   </section>
 
   <!-- Newsletter Section -->
-<section class="py-16 bg-white">
-  <div class="max-w-2xl mx-auto px-4 text-center">
-    <h3 class="text-3xl font-semibold mb-2">Join the Newsletter</h3>
-    <p class="text-gray-600 mb-6">Stay updated with analytics experiments and free resources.</p>
-
-    <form id="newsletter-form" class="space-y-4 max-w-md mx-auto">
-      <input 
-        type="text" 
-        name="name" 
-        placeholder="Your name" 
-        required 
-        class="w-full border border-gray-300 rounded px-4 py-2"
-      />
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="Email address" 
-        required 
-        class="w-full border border-gray-300 rounded px-4 py-2"
-      />
-      <button 
-        type="submit" 
-        class="w-full bg-blue-600 text-white py-2 rounded"
-      >
-        Subscribe
-      </button>
-    </form>
-
-    <div id="thank-you-message" class="hidden text-green-600 mt-6 font-medium">
-      ✅ Thanks! You're on the list.
+  <section class="py-16 bg-white">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h3 class="text-3xl font-semibold mb-2">Join the Newsletter</h3>
+      <p class="text-gray-600 mb-6">Stay updated with analytics experiments and free resources.</p>
+  
+      <form id="newsletter-form" class="space-y-4 max-w-md mx-auto">
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Your name" 
+          required 
+          class="w-full border border-gray-300 rounded px-4 py-2"
+        />
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="Email address" 
+          required 
+          class="w-full border border-gray-300 rounded px-4 py-2"
+        />
+        <button 
+          type="submit" 
+          class="w-full bg-blue-600 text-white py-2 rounded"
+        >
+          Subscribe
+        </button>
+      </form>
+  
+      <div id="thank-you-message" class="hidden text-green-600 mt-6 font-medium">
+        ✅ Thanks! You're on the list.
+      </div>
     </div>
-  </div>
-
-  <script>
-    const form = document.getElementById('newsletter-form');
-    const thankYou = document.getElementById('thank-you-message');
-
-    form.addEventListener('submit', async function (e) {
-      e.preventDefault();
-
-      const data = {
-        name: form.name.value,
-        email: form.email.value
-      };
-
-      // Push to GTM
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'newsletter_submitted',
-        ...data
-      });
-
-      // Send data to Zapier webhook
-      try {
-        await fetch('https://hooks.zapier.com/hooks/catch/21834535/2cvxy34/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
+  
+    <script>
+      const form = document.getElementById('newsletter-form');
+      const thankYou = document.getElementById('thank-you-message');
+  
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+  
+        // Push to GTM
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'newsletter_submitted',
+          name: form.name.value,
+          email: form.email.value
         });
-
-        // Show thank you message
+  
+        // Hide form & show thank you
         form.classList.add('hidden');
         thankYou.classList.remove('hidden');
-      } catch
+      });
+    </script>
+  </section>
+  
+
 
   
   <!-- Footer -->
