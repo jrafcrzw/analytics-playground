@@ -100,15 +100,7 @@
   
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-  
-        // Push to GTM
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: 'newsletter_submitted',
-          name: form.name.value,
-          email: form.email.value
-        });
-  
+
         // Hide form & show thank you
         form.classList.add('hidden');
         thankYou.classList.remove('hidden');
