@@ -74,24 +74,18 @@
   </div>
 
   <script>
-    const demoForm = document.getElementById('demo-request-form');
+    const demoForm = document.getElementById('form-demo');
     const demoThankYou = document.getElementById('thank-you-message-demo');
-
+  
     demoForm.addEventListener('submit', function (e) {
       e.preventDefault();
-
+  
       // Hide form & show thank you
       demoForm.classList.add('hidden');
       demoThankYou.classList.remove('hidden');
-
-      // Push to dataLayer for GTM
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        event: 'form_submit',
-        form_id: 'demo-request-form'
-      });
     });
   </script>
+  
 </section>
 
   
