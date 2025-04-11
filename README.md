@@ -51,7 +51,7 @@ Tags will be added manually and tested live for proper loading, triggering, and 
 
 - HTML (vanilla, no framework)
 - TailwindCSS (CDN)
-- Google Forms (embedded)
+- Third-party form service (embedded)
 
 ---
 
