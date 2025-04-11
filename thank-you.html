@@ -51,30 +51,37 @@
 </footer>
 
 <!-- 
-  Simulated GA4 purchase event pushed to dataLayer.
-  This mimics a backend-triggered purchase (e.g., from Stripe).
-  Used for GTM to detect and fire the purchase tag via Custom Event trigger.
+  Pushes a simulated GA4 'purchase' event into the dataLayer for GTM.
+  Uses sessionStorage to prevent multiple purchase events from firing on reloads.
+  In production, this should be replaced with a backend-triggered push.
+  
+  🛠 To manually reset the session for testing, run this in the DevTools Console:
+      sessionStorage.clear();
 -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push({
-    event: "purchase",
-    transaction_id: "tx_1234567890",
-    value: 1.00,
-    currency: "USD",
-    items: [
-      {
-        item_name: "Pixel Wizard",
-        item_id: "pxwz-001",
-        price: 1.00,
-        quantity: 1,
-        item_category: "digital_product"
-      }
-    ],
-    payment_gateway: "Stripe",
-    payment_method: "card"
-  });
+  if (!sessionStorage.getItem("purchase_fired")) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: "purchase",
+      transaction_id: "tx_1234567890",
+      value: 1.00,
+      currency: "USD",
+      items: [
+        {
+          item_name: "Pixel Wizard",
+          item_id: "pxwz-001",
+          price: 1.00,
+          quantity: 1,
+          item_category: "digital_product"
+        }
+      ],
+      payment_gateway: "Stripe",
+      payment_method: "card"
+    });
+    sessionStorage.setItem("purchase_fired", "true");
+  }
 </script>
+
 
 </body>
 </html>
