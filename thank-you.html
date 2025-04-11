@@ -50,5 +50,31 @@
   </p>
 </footer>
 
+<!-- 
+  Simulated GA4 purchase event pushed to dataLayer.
+  This mimics a backend-triggered purchase (e.g., from Stripe).
+  Used for GTM to detect and fire the purchase tag via Custom Event trigger.
+-->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: "purchase",
+    transaction_id: "tx_1234567890",
+    value: 1.00,
+    currency: "USD",
+    items: [
+      {
+        item_name: "Pixel Wizard",
+        item_id: "pxwz-001",
+        price: 1.00,
+        quantity: 1,
+        item_category: "digital_product"
+      }
+    ],
+    payment_gateway: "Stripe",
+    payment_method: "card"
+  });
+</script>
+
 </body>
 </html>
