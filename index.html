@@ -1,244 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
-<!-- 🛡️ Set Default Consent BEFORE GTM loads -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
-</script>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MFHF8JHC');</script>
-  <!-- End Google Tag Manager -->
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analytics Playground – Home</title>
-  <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-gray-100 text-gray-800">
-
-  <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <!-- Header -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Analytics Playground</h1>
-    <nav class="space-x-4">
-      <a href="/index.html">Home</a>
-      <a href="/product.html">Product</a>
-    </nav>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="text-center py-32 bg-gray-100">
-    <h2 class="text-3xl font-semibold mb-4">Track Everything. Improve Anything.</h2>
-    <p class="mb-6">Practice real-world analytics with this test site.</p>
-
-    <!-- Primary CTA -->
-    <button 
-      id="cta-hero-primary" 
-      class="button button-primary cta px-6 py-2 bg-blue-600 text-white rounded inline-block mr-4"
-    >
-      Buy Now
-    </button>
-
+  <head>
+    <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
     <script>
-      // This script makes the "Buy Now" button behave like a link by redirecting to Stripe checkout on click
-      document.getElementById('cta-hero-primary').addEventListener('click', function () {
-        window.location.href = 'https://buy.stripe.com/test_4gw15e3KT4oodGgaEE';
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
       });
     </script>
-
-    <!-- Secondary CTA -->
-    <a 
-      href="/product.html" 
-      id="cta-hero-secondary" 
-      class="cta text-blue-600 underline inline-block" 
-      rel="noopener noreferrer"
-    >
-      Learn More
-    </a>
-  </section>
-
-  <!-- Testimonial Section -->
-  <section class="text-center py-32 bg-gray-200">
-    <blockquote class="text-xl italic">"⭐️⭐️⭐️⭐️⭐️ This template is amazing." – Some User</blockquote>
-  </section>
-
-  <!-- Newsletter Section -->
-  <section class="py-32 bg-gray-100">
-    <div class="max-w-2xl mx-auto px-4 text-center">
-      <h3 class="text-3xl font-semibold mb-2">Join the Newsletter</h3>
-      <p class="text-gray-600 mb-6">Stay updated with analytics experiments and free resources.</p>
-
-      <form id="form-newsletter" class="space-y-4 max-w-md mx-auto">
-        <input 
-          type="text" 
-          name="name" 
-          placeholder="Your name" 
-          required 
-          class="w-full border border-gray-300 rounded px-4 py-2"
-        />
-        <input 
-          type="email" 
-          name="email" 
-          placeholder="Email address" 
-          required 
-          class="w-full border border-gray-300 rounded px-4 py-2"
-        />
-        <button 
-          type="submit" 
-          class="w-full bg-blue-600 text-white py-2 rounded"
-        >
-          Subscribe
-        </button>
-      </form>
-
-      <div id="thank-you-message-newsletter" class="hidden text-green-600 mt-6 font-medium">
-        ✅ Thanks! You're on the list.
-      </div>
-    </div>
-
+  
+    <!-- Google Tag Manager -->
     <script>
-      const form = document.getElementById('form-newsletter');
-      const thankYou = document.getElementById('thank-you-message-newsletter');
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MFHF8JHC');
+    </script>
+    <!-- End Google Tag Manager -->
 
-      form.addEventListener('submit', function (e) {
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Playground – Home</title>
+    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-gray-100 text-gray-800">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Analytics Playground</h1>
+      <nav class="space-x-4">
+        <a href="/index.html">Home</a>
+        <a href="/product.html">Product</a>
+      </nav>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="text-center py-32 bg-gray-100">
+      <h2 class="text-3xl font-semibold mb-4">Track Everything. Improve Anything.</h2>
+      <p class="mb-6">Practice real-world analytics with this test site.</p>
+      
+      <!-- Primary CTA -->
+      <button 
+        id="cta-hero-primary" 
+        class="button button-primary cta px-6 py-2 bg-blue-600 text-white rounded inline-block mr-4"
+        >
+        Buy Now
+      </button>
+    
+      <script>
+        // This script makes the "Buy Now" button behave like a link by redirecting to Stripe checkout on click
+        document.getElementById('cta-hero-primary').addEventListener('click', function () {
+        window.location.href = 'https://buy.stripe.com/test_4gw15e3KT4oodGgaEE';
+        });
+      </script>
+    
+      <!-- Secondary CTA -->
+      <a 
+        href="/product.html" 
+        id="cta-hero-secondary" 
+        class="cta text-blue-600 underline inline-block" 
+        rel="noopener noreferrer"
+        >
+        Learn More
+      </a>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="text-center py-32 bg-gray-200">
+      <blockquote class="text-xl italic">"⭐️⭐️⭐️⭐️⭐️ This template is amazing." – Some User</blockquote>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-32 bg-gray-100">
+      <div class="max-w-2xl mx-auto px-4 text-center">
+        <h3 class="text-3xl font-semibold mb-2">Join the Newsletter</h3>
+        <p class="text-gray-600 mb-6">Stay updated with analytics experiments and free resources.</p>
+    
+        <form id="form-newsletter" class="space-y-4 max-w-md mx-auto">
+          <input 
+            type="text" 
+            name="name" 
+            placeholder="Your name" 
+            required 
+            class="w-full border border-gray-300 rounded px-4 py-2"
+          />
+          <input 
+            type="email" 
+            name="email" 
+            placeholder="Email address" 
+            required 
+            class="w-full border border-gray-300 rounded px-4 py-2"
+          />
+          <button 
+            type="submit" 
+            class="w-full bg-blue-600 text-white py-2 rounded"
+            >
+            Subscribe
+          </button>
+        </form>
+  
+        <div id="thank-you-message-newsletter" class="hidden text-green-600 mt-6 font-medium">
+          ✅ Thanks! You're on the list.
+        </div>
+      </div>
+
+      <script>
+        const form = document.getElementById('form-newsletter');
+        const thankYou = document.getElementById('thank-you-message-newsletter');
+  
+        form.addEventListener('submit', function (e) {
         e.preventDefault();
-
+    
         // Hide form & show thank you
         form.classList.add('hidden');
         thankYou.classList.remove('hidden');
+        });
+      </script>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-12 bg-white border-t text-sm">
+      <p class="mb-2">© 2025 Analytics Playground. All rights reserved.</p>
+      <p class="mb-2">This site is a sandbox environment for testing analytics events and user behavior tracking.</p>
+      <p>
+        Built by <a 
+          href="https://github.com/jrafcrzw" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          id="link-footer-github" 
+          class="text-blue-600 underline"
+          >@jrafcrzw
+        </a>
+      </p>
+      <p>
+        <a href="/privacy-policy.html" class="text-blue-600 underline">Privacy Policy</a>
+      </p>
+    </footer>
+
+    <!-- Consent Banner (Floating Bottom-Left) -->
+    <div id="consent-banner" class="fixed bottom-8 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg z-50">
+      <p class="text-sm">
+        🍪 We use cookies to enhance your experience. Let us know your preference:
+      </p>
+      <button id="consent-accept" class="mt-2 bg-blue-700 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mr-2">
+        Agree
+      </button>
+      <button id="consent-decline" class="mt-2 bg-blue-700 hover:bg-red-500 text-white px-4 py-2 rounded text-sm">
+        Decline
+      </button>
+    </div>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+  
+      const consentBanner = document.getElementById('consent-banner');
+      const acceptButton = document.getElementById('consent-accept');
+      const declineButton = document.getElementById('consent-decline');
+  
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        const secure = location.protocol === 'https:' ? "; Secure" : "";
+        document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax" + secure;
+      }
+  
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
+  
+      function triggerConsentAccepted() {
+        // Update Google Consent Mode
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+         'analytics_storage': 'granted'
+       });
+    
+        // Optional: push event to dataLayer for custom analytics
+        window.dataLayer.push({
+          event: "consent_accepted",
+          consent: "accepted"
+       });
+    
+        console.log("Consent granted and updated via gtag()");
+      }
+  
+      // Check for existing consent
+      const consentGiven = getCookie('consentGiven');
+  
+      if (consentGiven === 'true') {
+        consentBanner.style.display = 'none';
+        triggerConsentAccepted();
+      } else if (consentGiven === 'false') {
+        consentBanner.style.display = 'none';
+        // No need to call gtag here because default is already denied
+      } else {
+        consentBanner.style.display = 'block';
+      }
+  
+      acceptButton.addEventListener('click', function () {
+        setCookie('consentGiven', 'true', 180);
+        consentBanner.style.display = 'none';
+        triggerConsentAccepted();
+      });
+  
+      declineButton.addEventListener('click', function () {
+        setCookie('consentGiven', 'false', 180);
+        consentBanner.style.display = 'none';
+    
+        window.dataLayer.push({
+          event: "consent_declined",
+          consent: "declined"
+        });
+    
+        console.log("Consent explicitly declined");
       });
     </script>
-  </section>
+    <!-- End of Consent Banner Script -->
 
-  <!-- Footer -->
-  <footer class="text-center py-12 bg-white border-t text-sm">
-    <p class="mb-2">© 2025 Analytics Playground. All rights reserved.</p>
-    <p class="mb-2">This site is a sandbox environment for testing analytics events and user behavior tracking.</p>
-    <p>
-      Built by <a 
-        href="https://github.com/jrafcrzw" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        id="link-footer-github" 
-        class="text-blue-600 underline"
-      >@jrafcrzw</a>
-    </p>
-    <p>
-      <a href="/privacy-policy.html" class="text-blue-600 underline">Privacy Policy</a>
-    </p>
-  </footer>
-
-  <!-- Consent Banner (Floating Bottom-Left) -->
-<div id="consent-banner" class="fixed bottom-8 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg z-50">
-  <p class="text-sm">
-    🍪 We use cookies to enhance your experience. Let us know your preference:
-  </p>
-  <button id="consent-accept" class="mt-2 bg-blue-700 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mr-2">
-    Agree
-  </button>
-  <button id="consent-decline" class="mt-2 bg-blue-700 hover:bg-red-500 text-white px-4 py-2 rounded text-sm">
-    Decline
-  </button>
-</div>
-
-<script>
-  window.dataLayer = window.dataLayer || [];
-
-  const consentBanner = document.getElementById('consent-banner');
-  const acceptButton = document.getElementById('consent-accept');
-  const declineButton = document.getElementById('consent-decline');
-
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    const secure = location.protocol === 'https:' ? "; Secure" : "";
-    document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax" + secure;
-  }
-
-  function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
-
-  function triggerConsentAccepted() {
-    // Update Google Consent Mode
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'analytics_storage': 'granted'
-    });
-
-    // Optional: push event to dataLayer for custom analytics
-    window.dataLayer.push({
-      event: "consent_accepted",
-      consent: "accepted"
-    });
-
-    console.log("Consent granted and updated via gtag()");
-  }
-
-  // Check for existing consent
-  const consentGiven = getCookie('consentGiven');
-
-  if (consentGiven === 'true') {
-    consentBanner.style.display = 'none';
-    triggerConsentAccepted();
-  } else if (consentGiven === 'false') {
-    consentBanner.style.display = 'none';
-    // No need to call gtag here because default is already denied
-  } else {
-    consentBanner.style.display = 'block';
-  }
-
-  acceptButton.addEventListener('click', function () {
-    setCookie('consentGiven', 'true', 180);
-    consentBanner.style.display = 'none';
-    triggerConsentAccepted();
-  });
-
-  declineButton.addEventListener('click', function () {
-    setCookie('consentGiven', 'false', 180);
-    consentBanner.style.display = 'none';
-
-    window.dataLayer.push({
-      event: "consent_declined",
-      consent: "declined"
-    });
-
-    console.log("Consent explicitly declined");
-  });
-</script>
-<!-- End of Consent Banner Script -->
-
-</body>
+  </body>
 </html>
