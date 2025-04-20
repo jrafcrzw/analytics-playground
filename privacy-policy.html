@@ -176,13 +176,8 @@
     function resetConsent() {
       // Remove the consent cookie
       document.cookie = "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-  
-      // Remove the GA cookie (if applicable)
-      document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-  
       // Reload the page to reset the consent state and re-trigger the banner logic
       location.reload();
-  
       console.log("Consent reset. Page reloaded.");
     }
   </script>
