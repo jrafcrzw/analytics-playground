@@ -51,6 +51,13 @@
     <p class="mb-4">
       Since we do not store personal data, you have no data access rights at this time. However, if you have any questions or concerns, feel free to contact us.
     </p>
+
+    <div class="mt-8 flex justify-center">
+        <button onclick="resetConsent()" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded">
+          Change your cookie preferences
+        </button>
+      </div>
+      
   </section>
 
   <!-- Footer -->
@@ -163,6 +170,23 @@
   });
 </script>
 <!-- End of Consent Banner Script -->
+
+<!--Reset cookie preferences-->
+<script>
+    function resetConsent() {
+      // Remove the consent cookie
+      document.cookie = "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+  
+      // Show the banner again
+      var consentBanner = document.getElementById('consent-banner');
+      if (consentBanner) {
+        consentBanner.style.display = 'block';
+      }
+  
+      console.log("Consent reset. Banner reopened.");
+    }
+  </script>
+  <!--End of Reset cookie preferences-->
 
 </body>
 </html>
