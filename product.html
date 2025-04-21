@@ -1,221 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  
-  <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    'ad_storage': 'denied',
-    'ad_user_data': 'denied',
-    'ad_personalization': 'denied',
-    'analytics_storage': 'denied'
-  });
-</script>
+  <head>
+    
+    <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    </script>
 
-  <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-MFHF8JHC');</script>
-  <!-- End Google Tag Manager -->
-   
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Analytics Playground – Product</title>
-  <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-MFHF8JHC');
+    </script>
+    <!-- End Google Tag Manager -->
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Playground – Product</title>
+    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  </head>
 
-<body class="bg-gray-100 text-gray-800">
+  <body class="bg-gray-100 text-gray-800">
 
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-  <!-- Header -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold">Analytics Playground</h1>
-    <nav class="space-x-4">
-      <a href="/index.html">Home</a>
-      <a href="/product.html">Product</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header class="bg-white shadow p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">Analytics Playground</h1>
+      <nav class="space-x-4">
+        <a href="/index.html">Home</a>
+        <a href="/product.html">Product</a>
+      </nav>
+    </header>
 
-  <!-- Product Section: Image + Form Side-by-Side -->
-<section class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+    <!-- Product Section: Image + Form Side-by-Side -->
+    <section class="py-16 bg-white">
+      <div class="max-w-6xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
+          
+        <!-- Product Image + Info -->
+        <div class="text-center">
+          <img src="./assets/product.png" alt="Product image" class="w-full max-w-md mx-auto rounded shadow" />
+          <h2 class="text-3xl font-semibold mt-6">Product Demo</h2>
+          <p class="text-gray-600 mt-2">This is a mock product used to test analytics and conversion tracking.</p>
+        </div>
       
-      <!-- Product Image + Info -->
-      <div class="text-center">
-        <img src="./assets/product.png" alt="Product image" class="w-full max-w-md mx-auto rounded shadow" />
-        <h2 class="text-3xl font-semibold mt-6">Product Demo</h2>
-        <p class="text-gray-600 mt-2">This is a mock product used to test analytics and conversion tracking.</p>
+        <!-- Demo Request Section -->
+        <section class="py-16 bg-white">
+          <div class="max-w-2xl mx-auto px-4 text-center">
+            <h3 class="text-3xl font-semibold mb-2">Request a Demo</h3>
+            <p class="text-gray-600 mb-6">Want a closer look? Let us walk you through it — no pressure.</p>
+
+            <form id="form-demo" class="space-y-4 max-w-md mx-auto">
+              <input 
+                type="text" 
+                name="name" 
+                placeholder="Your name" 
+                required 
+                class="w-full border border-gray-300 rounded px-4 py-2"
+              />
+              <input 
+                type="email" 
+                name="email" 
+                placeholder="Email address" 
+                required 
+                class="w-full border border-gray-300 rounded px-4 py-2"
+              />
+              <button 
+                type="submit" 
+                class="w-full bg-blue-600 text-white py-2 rounded"
+              >
+                Get the Demo
+              </button>
+            </form>
+
+            <div id="thank-you-message-demo" class="hidden text-green-600 mt-6 font-medium">
+              ✅ Thanks! We'll be in touch soon.
+            </div>
+          </div>
+
+          <script>
+            const demoForm = document.getElementById('form-demo');
+            const demoThankYou = document.getElementById('thank-you-message-demo');
+          
+            demoForm.addEventListener('submit', function (e) {
+              e.preventDefault();
+          
+              // Hide form & show thank you
+              demoForm.classList.add('hidden');
+              demoThankYou.classList.remove('hidden');
+            });
+          </script>
+        </section>
       </div>
-  
-      <!-- Demo Request Section -->
-<section class="py-16 bg-white">
-  <div class="max-w-2xl mx-auto px-4 text-center">
-    <h3 class="text-3xl font-semibold mb-2">Request a Demo</h3>
-    <p class="text-gray-600 mb-6">Want a closer look? Let us walk you through it — no pressure.</p>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="text-center py-12 bg-white border-t text-sm">
+      <p class="mb-2">© 2025 Analytics Playground. All rights reserved.</p>
+      <p class="mb-2">This site is a sandbox environment for testing analytics events and user behavior tracking.</p>
+      <p>
+        Built by <a 
+          href="https://github.com/jrafcrzw" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          id="link-footer-github" 
+          class="text-blue-600 underline"
+        >@jrafcrzw</a>
+      </p>
+      <p>
+        <a href="/privacy-policy.html" class="text-blue-600 underline">Privacy Policy</a>
+      </p>
+    </footer>
 
-    <form id="form-demo" class="space-y-4 max-w-md mx-auto">
-      <input 
-        type="text" 
-        name="name" 
-        placeholder="Your name" 
-        required 
-        class="w-full border border-gray-300 rounded px-4 py-2"
-      />
-      <input 
-        type="email" 
-        name="email" 
-        placeholder="Email address" 
-        required 
-        class="w-full border border-gray-300 rounded px-4 py-2"
-      />
-      <button 
-        type="submit" 
-        class="w-full bg-blue-600 text-white py-2 rounded"
-      >
-        Get the Demo
+    <!-- Consent Banner (Floating Bottom-Left) -->
+    <div id="consent-banner" class="fixed bottom-8 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg z-50">
+      <p class="text-sm">
+        🍪 We use cookies to enhance your experience. Let us know your preference:
+      </p>
+      <button id="consent-accept" class="mt-2 bg-blue-700 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mr-2">
+        Agree
       </button>
-    </form>
-
-    <div id="thank-you-message-demo" class="hidden text-green-600 mt-6 font-medium">
-      ✅ Thanks! We'll be in touch soon.
+      <button id="consent-decline" class="mt-2 bg-blue-700 hover:bg-red-500 text-white px-4 py-2 rounded text-sm">
+        Decline
+      </button>
     </div>
-  </div>
 
-  <script>
-    const demoForm = document.getElementById('form-demo');
-    const demoThankYou = document.getElementById('thank-you-message-demo');
-  
-    demoForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-  
-      // Hide form & show thank you
-      demoForm.classList.add('hidden');
-      demoThankYou.classList.remove('hidden');
-    });
-  </script>
-</section>
-    </div>
-  </section>
-  
-  <!-- Footer -->
-  <footer class="text-center py-12 bg-white border-t text-sm">
-    <p class="mb-2">© 2025 Analytics Playground. All rights reserved.</p>
-    <p class="mb-2">This site is a sandbox environment for testing analytics events and user behavior tracking.</p>
-    <p>
-      Built by <a 
-        href="https://github.com/jrafcrzw" 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        id="link-footer-github" 
-        class="text-blue-600 underline"
-      >@jrafcrzw</a>
-    </p>
-    <p>
-      <a href="/privacy-policy.html" class="text-blue-600 underline">Privacy Policy</a>
-    </p>
-  </footer>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-  <!-- Consent Banner (Floating Bottom-Left) -->
-<div id="consent-banner" class="fixed bottom-8 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg z-50">
-  <p class="text-sm">
-    🍪 We use cookies to enhance your experience. Let us know your preference:
-  </p>
-  <button id="consent-accept" class="mt-2 bg-blue-700 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mr-2">
-    Agree
-  </button>
-  <button id="consent-decline" class="mt-2 bg-blue-700 hover:bg-red-500 text-white px-4 py-2 rounded text-sm">
-    Decline
-  </button>
-</div>
+      const consentBanner = document.getElementById('consent-banner');
+      const acceptButton = document.getElementById('consent-accept');
+      const declineButton = document.getElementById('consent-decline');
 
-<script>
-  window.dataLayer = window.dataLayer || [];
+      function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+          const date = new Date();
+          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+          expires = "; expires=" + date.toUTCString();
+        }
+        const secure = location.protocol === 'https:' ? "; Secure" : "";
+        document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax" + secure;
+      }
 
-  const consentBanner = document.getElementById('consent-banner');
-  const acceptButton = document.getElementById('consent-accept');
-  const declineButton = document.getElementById('consent-decline');
+      function getCookie(name) {
+        const nameEQ = name + "=";
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+      }
 
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    const secure = location.protocol === 'https:' ? "; Secure" : "";
-    document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax" + secure;
-  }
+      function triggerConsentAccepted() {
+        // Update Google Consent Mode
+        gtag('consent', 'update', {
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted',
+          'analytics_storage': 'granted'
+        });
 
-  function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
+        // Optional: push event to dataLayer for custom analytics
+        window.dataLayer.push({
+          event: "consent_accepted",
+          consent: "accepted"
+        });
 
-  function triggerConsentAccepted() {
-    // Update Google Consent Mode
-    gtag('consent', 'update', {
-      'ad_storage': 'granted',
-      'ad_user_data': 'granted',
-      'ad_personalization': 'granted',
-      'analytics_storage': 'granted'
-    });
+        console.log("Consent granted and updated via gtag()");
+      }
 
-    // Optional: push event to dataLayer for custom analytics
-    window.dataLayer.push({
-      event: "consent_accepted",
-      consent: "accepted"
-    });
+      // Check for existing consent
+      const consentGiven = getCookie('consentGiven');
 
-    console.log("Consent granted and updated via gtag()");
-  }
+      if (consentGiven === 'true') {
+        consentBanner.style.display = 'none';
+        triggerConsentAccepted();
+      } else if (consentGiven === 'false') {
+        consentBanner.style.display = 'none';
+        // No need to call gtag here because default is already denied
+      } else {
+        consentBanner.style.display = 'block';
+      }
 
-  // Check for existing consent
-  const consentGiven = getCookie('consentGiven');
+      acceptButton.addEventListener('click', function () {
+        setCookie('consentGiven', 'true', 180);
+        consentBanner.style.display = 'none';
+        triggerConsentAccepted();
+      });
 
-  if (consentGiven === 'true') {
-    consentBanner.style.display = 'none';
-    triggerConsentAccepted();
-  } else if (consentGiven === 'false') {
-    consentBanner.style.display = 'none';
-    // No need to call gtag here because default is already denied
-  } else {
-    consentBanner.style.display = 'block';
-  }
+      declineButton.addEventListener('click', function () {
+        setCookie('consentGiven', 'false', 180);
+        consentBanner.style.display = 'none';
 
-  acceptButton.addEventListener('click', function () {
-    setCookie('consentGiven', 'true', 180);
-    consentBanner.style.display = 'none';
-    triggerConsentAccepted();
-  });
+        window.dataLayer.push({
+          event: "consent_declined",
+          consent: "declined"
+        });
 
-  declineButton.addEventListener('click', function () {
-    setCookie('consentGiven', 'false', 180);
-    consentBanner.style.display = 'none';
+        console.log("Consent explicitly declined");
+      });
+    </script>
+    <!-- End of Consent Banner Script -->
 
-    window.dataLayer.push({
-      event: "consent_declined",
-      consent: "declined"
-    });
-
-    console.log("Consent explicitly declined");
-  });
-</script>
-<!-- End of Consent Banner Script -->
-
-</body>
+  </body>
 </html>
