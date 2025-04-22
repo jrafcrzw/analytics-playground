@@ -138,98 +138,109 @@
       </p>
     </footer>
 
-    <!-- Consent Banner (Floating Bottom-Left) -->
-    <div id="consent-banner" class="fixed bottom-8 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg z-50">
+    <!-- Consent Banner -->
+    <div
+    id="consent-banner"
+    class="fixed bottom-8 left-8 bg-blue-600 text-white py-3 px-6 rounded-lg shadow-lg z-50 opacity-0 transition-opacity duration-500"
+    style="display: none"
+    >
       <p class="text-sm">
         🍪 We use cookies to enhance your experience. Let us know your preference:
       </p>
-      <button id="consent-accept" class="mt-2 bg-blue-700 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mr-2">
+      <button
+        id="consent-accept"
+        class="mt-2 bg-blue-700 hover:bg-green-700 text-white px-4 py-2 rounded text-sm mr-2"
+      >
         Agree
       </button>
-      <button id="consent-decline" class="mt-2 bg-blue-700 hover:bg-red-500 text-white px-4 py-2 rounded text-sm">
+      <button
+        id="consent-decline"
+        class="mt-2 bg-blue-700 hover:bg-red-500 text-white px-4 py-2 rounded text-sm"
+      >
         Decline
       </button>
     </div>
 
     <script>
-      window.dataLayer = window.dataLayer || [];
+      document.addEventListener("DOMContentLoaded", function () {
+        const consentBanner = document.getElementById("consent-banner");
+        const acceptButton = document.getElementById("consent-accept");
+        const declineButton = document.getElementById("consent-decline");
 
-      const consentBanner = document.getElementById('consent-banner');
-      const acceptButton = document.getElementById('consent-accept');
-      const declineButton = document.getElementById('consent-decline');
-
-      function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-          const date = new Date();
-          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-          expires = "; expires=" + date.toUTCString();
+        function setCookie(name, value, days) {
+          let expires = "";
+          if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
+          }
+          const secure = location.protocol === "https:" ? "; Secure" : "";
+          document.cookie =
+            name + "=" + (value || "") + expires + "; path=/; SameSite=Lax" + secure;
         }
-        const secure = location.protocol === 'https:' ? "; Secure" : "";
-        document.cookie = name + "=" + (value || "") + expires + "; path=/; SameSite=Lax" + secure;
-      }
 
-      function getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-          let c = ca[i];
-          while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        function getCookie(name) {
+          const nameEQ = name + "=";
+          const ca = document.cookie.split(";");
+          for (let i = 0; i < ca.length; i++) {
+            let c = ca[i].trim();
+            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length);
+          }
+          return null;
         }
-        return null;
-      }
 
-      function triggerConsentAccepted() {
-        // Update Google Consent Mode
-        gtag('consent', 'update', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
+        const consentGiven = getCookie("consentGiven");
+
+        if (consentGiven === "true") {
+          // Consent previously granted
+        } else if (consentGiven === "false") {
+          // Consent previously denied
+        } else {
+          // First-time visitor — show banner with fade-in
+          consentBanner.style.display = "block";
+          requestAnimationFrame(() => {
+            consentBanner.classList.add("opacity-100");
+          });
+        }
+
+        acceptButton.addEventListener("click", function () {
+          setCookie("consentGiven", "true", 180);
+
+          if (typeof gtag === "function") {
+            gtag("consent", "update", {
+              ad_storage: "granted",
+              ad_user_data: "granted",
+              ad_personalization: "granted",
+              analytics_storage: "granted",
+            });
+          }
+
+          window.dataLayer.push({
+            event: "consent_accepted",
+            consent: "accepted",
+          });
+
+          consentBanner.style.display = "none";
+
+          setTimeout(() => {
+            location.reload();
+          }, 300);
         });
 
-        // Optional: push event to dataLayer for custom analytics
-        window.dataLayer.push({
-          event: "consent_accepted",
-          consent: "accepted"
+        declineButton.addEventListener("click", function () {
+          setCookie("consentGiven", "false", 180);
+          consentBanner.style.display = "none";
+
+          window.dataLayer.push({
+            event: "consent_declined",
+            consent: "declined",
+          });
+
+          console.log("Consent explicitly declined");
         });
-
-        console.log("Consent granted and updated via gtag()");
-      }
-
-      // Check for existing consent
-      //const consentGiven = getCookie('consentGiven'); consentGiven already declared in the head element
-
-      if (consentGiven === 'true') {
-        consentBanner.style.display = 'none';
-        triggerConsentAccepted();
-      } else if (consentGiven === 'false') {
-        consentBanner.style.display = 'none';
-        // No need to call gtag here because default is already denied
-      } else {
-        consentBanner.style.display = 'block';
-      }
-
-      acceptButton.addEventListener('click', function () {
-        setCookie('consentGiven', 'true', 180);
-        consentBanner.style.display = 'none';
-        triggerConsentAccepted();
-      });
-
-      declineButton.addEventListener('click', function () {
-        setCookie('consentGiven', 'false', 180);
-        consentBanner.style.display = 'none';
-
-        window.dataLayer.push({
-          event: "consent_declined",
-          consent: "declined"
-        });
-
-        console.log("Consent explicitly declined");
       });
     </script>
-    <!-- End of Consent Banner Script -->
+    <!-- End Consent Banner -->
 
   </body>
 </html>
