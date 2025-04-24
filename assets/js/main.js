@@ -95,3 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 //-- End consent-banner script--  
+
+
+//-- Reset coookie preferences script--
+      function resetConsent() {
+        // Remove the consent cookie
+        document.cookie = "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+        // Reload the page to reset the consent state and re-trigger the banner logic
+        location.reload();
+        console.log("Consent reset. Page reloaded.");
+      }
+//-- End Reset coookie preferences script--          

@@ -100,15 +100,7 @@
     <!-- End Consent Banner -->
 
     <!--Reset cookie preferences-->
-    <script>
-      function resetConsent() {
-        // Remove the consent cookie
-        document.cookie = "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-        // Reload the page to reset the consent state and re-trigger the banner logic
-        location.reload();
-        console.log("Consent reset. Page reloaded.");
-      }
-    </script>
+    <button onclick="resetConsent()">Reset Cookie Preferences</button>
     <!--End of Reset cookie preferences-->  
 
   </body>
