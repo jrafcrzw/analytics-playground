@@ -105,22 +105,30 @@ function resetConsent() {
   // Known first-party cookie prefixes to remove
   const cookiePrefixes = [
     "_ga", // Google Analytics (includes _ga, _ga_<container>)
+    "_ga_", // Specifically target _ga_<container> cookies
     "_fbp", // Meta/Facebook Pixel
   ];
 
   // Optional: If other platforms are added in the future, include their prefixes here:
-  // _gcl     → Google Ads (e.g. _gcl_au)
-  // _uet     → Microsoft Ads (e.g. _uetvid, _uetsid)
-  // _tt_     → TikTok Pixel
-  // _li_     → LinkedIn Insight Tag
-  // _pin_    → Pinterest Tag
+  // _gcl      → Google Ads (e.g. _gcl_au)
+  // _uet      → Microsoft Ads (e.g. _uetvid, _uetsid)
+  // _tt_      → TikTok Pixel
+  // _li_      → LinkedIn Insight Tag
+  // _pin_     → Pinterest Tag
 
   // Loop through cookies and remove those with matching prefixes
   document.cookie.split(";").forEach((cookie) => {
     const name = cookie.split("=")[0].trim();
     cookiePrefixes.forEach((prefix) => {
       if (name.startsWith(prefix)) {
+        // Try deleting at the root path
         document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax`;
+        // Optional: If cookies might be set on a specific subdomain, try that too
+        // const hostParts = location.hostname.split('.');
+        // if (hostParts.length > 1) {
+        //   const domain = `.${hostParts.slice(-2).join('.')}`;
+        //   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}; SameSite=Lax`;
+        // }
       }
     });
   });
