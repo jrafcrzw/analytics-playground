@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
     <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-  
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       // Check for existing consent cookie
       var consentGiven = document.cookie.indexOf("consentGiven=true") !== -1;
-  
+
       if (consentGiven) {
-        gtag('consent', 'default', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
+        gtag("consent", "default", {
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          analytics_storage: "granted",
         });
       } else {
-        gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied'
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
         });
       }
     </script>
 
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-MFHF8JHC');
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MFHF8JHC");
     </script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You – Analytics Playground</title>
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script
+      defer
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="bg-gray-100 text-gray-800">
-
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
-      height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
     <!-- Navbar -->
@@ -58,7 +75,9 @@
     <section class="text-center py-20">
       <h2 class="text-3xl font-semibold mb-4">Thank you for your purchase!</h2>
       <p class="mb-6">We’ve received your submission.</p>
-      <a href="/index.html" class="px-6 py-2 bg-blue-600 text-white rounded">Return to Home</a>
+      <a href="/index.html" class="px-6 py-2 bg-blue-600 text-white rounded"
+        >Return to Home</a
+      >
     </section>
 
     <!-- Footer -->
@@ -78,19 +97,19 @@
         window.dataLayer.push({
           event: "purchase",
           transaction_id: "tx_1234567890",
-          value: 1.00,
+          value: 1.0,
           currency: "USD",
           items: [
             {
               item_name: "Pixel Wizard",
               item_id: "pxwz-001",
-              price: 1.00,
+              price: 1.0,
               quantity: 1,
-              item_category: "digital_product"
-            }
+              item_category: "digital_product",
+            },
           ],
           payment_gateway: "Stripe",
-          payment_method: "card"
+          payment_method: "card",
         });
         sessionStorage.setItem("purchase_fired", "true");
       }
@@ -100,6 +119,5 @@
     <div data-placeholder="consent-banner"></div>
     <script src="/assets/js/main.js" defer></script>
     <!-- End Consent Banner -->
-
   </body>
 </html>

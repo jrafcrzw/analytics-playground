@@ -1,94 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-
     <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-  
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       // Check for existing consent cookie
       var consentGiven = document.cookie.indexOf("consentGiven=true") !== -1;
-  
+
       if (consentGiven) {
-        gtag('consent', 'default', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
+        gtag("consent", "default", {
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          analytics_storage: "granted",
         });
       } else {
-        gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied'
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
         });
       }
     </script>
 
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-MFHF8JHC');
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MFHF8JHC");
     </script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Privacy Policy – Analytics Playground</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="bg-gray-100 text-gray-800">
-
     <!-- Navbar -->
     <div data-placeholder="navbar"></div>
 
     <!-- Privacy Policy Content -->
     <section class="py-16 px-4 max-w-3xl mx-auto">
-      <h2 class="text-3xl font-semibold text-center mb-6">Privacy Policy for Analytics Playground</h2>
+      <h2 class="text-3xl font-semibold text-center mb-6">
+        Privacy Policy for Analytics Playground
+      </h2>
       <p class="text-lg mb-4">Last updated: April, 2025.</p>
 
       <p class="mb-6">
-        This Privacy Policy explains how we collect, use, and protect your information when you visit our website, Analytics Playground.
+        This Privacy Policy explains how we collect, use, and protect your
+        information when you visit our website, Analytics Playground.
       </p>
 
       <h3 class="text-xl font-semibold mt-6 mb-4">1. Data Collection</h3>
       <p class="mb-4">
-        We collect event data when you submit forms (such as our newsletter and product demo forms). This data includes interaction with our site (form submission) but does not include any personally identifiable information. The information provided in these forms is not stored—it is only used to trigger tracking events for analysis.
+        We collect event data when you submit forms (such as our newsletter and
+        product demo forms). This data includes interaction with our site (form
+        submission) but does not include any personally identifiable
+        information. The information provided in these forms is not stored—it is
+        only used to trigger tracking events for analysis.
       </p>
 
       <h3 class="text-xl font-semibold mt-6 mb-4">2. Cookies and Tracking</h3>
       <p class="mb-4">
-        We use cookies and other tracking technologies (via Google Tag Manager) to track user interactions with our site. These cookies are used solely for tracking form submissions and measuring website performance. We do not store personal data from these cookies.
+        We use cookies and other tracking technologies (via Google Tag Manager)
+        to track user interactions with our site. These cookies are used solely
+        for tracking form submissions and measuring website performance. We do
+        not store personal data from these cookies.
       </p>
 
       <h3 class="text-xl font-semibold mt-6 mb-4">3. How We Use Your Data</h3>
       <p class="mb-4">
-        The information we collect is used for website testing and analytics purposes. No personal information is saved or shared.
+        The information we collect is used for website testing and analytics
+        purposes. No personal information is saved or shared.
       </p>
 
       <h3 class="text-xl font-semibold mt-6 mb-4">4. Cookie Consent</h3>
       <p class="mb-4">
-        When you visit our site, you will be asked to consent to our use of cookies. You can choose to accept or decline cookies. If you decline, we will not set non-essential cookies for analytics or tracking.
+        When you visit our site, you will be asked to consent to our use of
+        cookies. You can choose to accept or decline cookies. If you decline, we
+        will not set non-essential cookies for analytics or tracking.
       </p>
 
       <h3 class="text-xl font-semibold mt-6 mb-4">5. Your Rights</h3>
       <p class="mb-4">
-        Since we do not store personal data, you have no data access rights at this time. However, if you have any questions or concerns, feel free to contact us.
+        Since we do not store personal data, you have no data access rights at
+        this time. However, if you have any questions or concerns, feel free to
+        contact us.
       </p>
 
       <div class="mt-8 flex justify-center">
-        <button onclick="resetConsent()" class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded">
+        <button
+          onclick="resetConsent()"
+          class="bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded"
+        >
           Change your cookie preferences
         </button>
       </div>
-      
     </section>
 
     <!-- Footer -->
@@ -97,7 +121,6 @@
     <!-- Consent Banner -->
     <div data-placeholder="consent-banner"></div>
     <script src="/assets/js/main.js" defer></script>
-    <!-- End Consent Banner -->  
-
+    <!-- End Consent Banner -->
   </body>
 </html>

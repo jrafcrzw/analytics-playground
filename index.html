@@ -1,142 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-  
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       // Check for existing consent cookie
       var consentGiven = document.cookie.indexOf("consentGiven=true") !== -1;
-  
+
       if (consentGiven) {
-        gtag('consent', 'default', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
+        gtag("consent", "default", {
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          analytics_storage: "granted",
         });
       } else {
-        gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied'
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
         });
       }
     </script>
-  
+
     <!-- Google Tag Manager -->
     <script>
-      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-      })(window,document,'script','dataLayer','GTM-MFHF8JHC');
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-MFHF8JHC");
     </script>
     <!-- End Google Tag Manager -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Analytics Playground – Home</title>
-    <script defer src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script
+      defer
+      src="https://www.googletagmanager.com/gtm.js?id=GTM-XXXXXX"
+    ></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   </head>
 
   <body class="bg-gray-100 text-gray-800">
-
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-MFHF8JHC"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
+
     <!-- Navbar -->
     <div data-placeholder="navbar"></div>
-    
+
     <!-- Hero Section -->
     <section class="text-center py-32 bg-gray-100">
-      <h2 class="text-3xl font-semibold mb-4">Track Everything. Improve Anything.</h2>
+      <h2 class="text-3xl font-semibold mb-4">
+        Track Everything. Improve Anything.
+      </h2>
       <p class="mb-6">Practice real-world analytics with this test site.</p>
-      
+
       <!-- Primary CTA -->
-      <button 
-        id="cta-hero-primary" 
+      <button
+        id="cta-hero-primary"
         class="button button-primary cta px-6 py-2 bg-blue-600 text-white rounded inline-block mr-4"
-        >
+      >
         Buy Now
       </button>
-    
+
       <script>
         // This script makes the "Buy Now" button behave like a link by redirecting to Stripe checkout on click
-        document.getElementById('cta-hero-primary').addEventListener('click', function () {
-        window.location.href = 'https://buy.stripe.com/test_4gw15e3KT4oodGgaEE';
-        });
+        document
+          .getElementById("cta-hero-primary")
+          .addEventListener("click", function () {
+            window.location.href =
+              "https://buy.stripe.com/test_4gw15e3KT4oodGgaEE";
+          });
       </script>
-    
+
       <!-- Secondary CTA -->
-      <a 
-        href="/product.html" 
-        id="cta-hero-secondary" 
-        class="cta text-blue-600 underline inline-block" 
+      <a
+        href="/product.html"
+        id="cta-hero-secondary"
+        class="cta text-blue-600 underline inline-block"
         rel="noopener noreferrer"
-        >
+      >
         Learn More
       </a>
     </section>
 
     <!-- Testimonial Section -->
     <section class="text-center py-32 bg-gray-200">
-      <blockquote class="text-xl italic">"⭐️⭐️⭐️⭐️⭐️ This template is amazing." – Some User</blockquote>
+      <blockquote class="text-xl italic">
+        "⭐️⭐️⭐️⭐️⭐️ This template is amazing." – Some User
+      </blockquote>
     </section>
 
     <!-- Newsletter Section -->
     <section class="py-32 bg-gray-100">
       <div class="max-w-2xl mx-auto px-4 text-center">
         <h3 class="text-3xl font-semibold mb-2">Join the Newsletter</h3>
-        <p class="text-gray-600 mb-6">Stay updated with analytics experiments and free resources.</p>
-    
+        <p class="text-gray-600 mb-6">
+          Stay updated with analytics experiments and free resources.
+        </p>
+
         <form id="form-newsletter" class="space-y-4 max-w-md mx-auto">
-          <input 
-            type="text" 
-            name="name" 
-            placeholder="Your name" 
-            required 
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            required
             class="w-full border border-gray-300 rounded px-4 py-2"
           />
-          <input 
-            type="email" 
-            name="email" 
-            placeholder="Email address" 
-            required 
+          <input
+            type="email"
+            name="email"
+            placeholder="Email address"
+            required
             class="w-full border border-gray-300 rounded px-4 py-2"
           />
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             class="w-full bg-blue-600 text-white py-2 rounded"
-            >
+          >
             Subscribe
           </button>
         </form>
-  
-        <div id="thank-you-message-newsletter" class="hidden text-green-600 mt-6 font-medium">
+
+        <div
+          id="thank-you-message-newsletter"
+          class="hidden text-green-600 mt-6 font-medium"
+        >
           ✅ Thanks! You're on the list.
         </div>
       </div>
 
       <script>
-        const form = document.getElementById('form-newsletter');
-        const thankYou = document.getElementById('thank-you-message-newsletter');
-  
-        form.addEventListener('submit', function (e) {
-        e.preventDefault();
-    
-        // Hide form & show thank you
-        form.classList.add('hidden');
-        thankYou.classList.remove('hidden');
+        const form = document.getElementById("form-newsletter");
+        const thankYou = document.getElementById(
+          "thank-you-message-newsletter"
+        );
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Hide form & show thank you
+          form.classList.add("hidden");
+          thankYou.classList.remove("hidden");
         });
       </script>
-
     </section>
 
     <!-- Footer -->
@@ -146,6 +176,5 @@
     <div data-placeholder="consent-banner"></div>
     <script src="/assets/js/main.js" defer></script>
     <!-- End Consent Banner -->
-
   </body>
 </html>
