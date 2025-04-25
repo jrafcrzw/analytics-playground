@@ -1,26 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- 🛡️ Check Default Consent BEFORE GTM loads -->
+    <!-- 🛡️ Initialize dataLayer and check for consent BEFORE GTM loads -->
     <script>
-      function gtag() {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push(arguments);
-      }
-    
-      // Check for existing consent cookie
+      window.dataLayer = window.dataLayer || [];
+
+      // Optional: Push event to GTM if user has already accepted cookies
       var consentGiven = document.cookie.indexOf("consentGiven=true") !== -1;
-    
+
       if (consentGiven) {
-        gtag("consent", "update", {
-          ad_storage: "granted",
-          analytics_storage: "granted",
-          functionality_storage: "granted",
-          personalization_storage: "granted",
-          security_storage: "granted",
-          ad_user_data: "granted",
-          ad_personalization: "granted",
-        });
+        window.dataLayer.push({ event: "consent_accepted" });
       }
     </script>
 
