@@ -125,8 +125,10 @@ function resetConsent() {
     });
   });
 
-  // Reload to reset the consent state
-  location.reload();
-  console.log("Consent reset. GA and Meta cookies cleared.");
+  // Add a short delay to let the browser clear cookies before reload
+  console.log("Consent reset. Attempted cookie deletion. Reloading in 300ms...");
+  setTimeout(() => {
+    location.reload();
+  }, 300);
 }
 //-- End Reset cookie preferences script --
