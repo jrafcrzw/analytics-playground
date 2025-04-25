@@ -108,30 +108,21 @@ function resetConsent() {
     "_fbp",
   ];
 
-  // Function to delete a cookie by name, trying different paths
-  function deleteCookie(name) {
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax`;
-    // Try with the current path (in case it's more specific)
-    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${window.location.pathname}; SameSite=Lax`;
-    // Try one level up in the path
-    const pathParts = window.location.pathname.split('/').slice(0, -1).join('/');
-    if (pathParts) {
-      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${pathParts}/; SameSite=Lax`;
-    }
-    // Optional: Try with a specific domain if you suspect that's the case
-    // const domain = document.domain;
-    // document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}; SameSite=Lax`;
-  }
+  //-- Reset cookie preferences script --
+function resetConsent() {
+  // Remove custom consent cookie
+  document.cookie =
+    "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Loop through the cookies to remove
-  cookiesToRemove.forEach(cookieName => {
-    deleteCookie(cookieName);
-  });
+  // Directly delete the target cookies
+  document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+  document.cookie = "_ga_G41117455P=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+  document.cookie = "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Add a slightly longer delay to ensure cookie deletion
-  console.log("Consent reset. Attempted cookie deletion. Reloading in 500ms...");
+  // Add a significant delay for testing
+  console.log("Consent reset. Attempted direct cookie deletion. Reloading in 3000ms...");
   setTimeout(() => {
     location.reload();
-  }, 500);
+  }, 3000);
 }
 //-- End Reset cookie preferences script --
