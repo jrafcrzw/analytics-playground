@@ -103,24 +103,25 @@ function resetConsent() {
     "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
   // Known first-party cookie names/prefixes to remove
-  const cookiesToRemove = [
-    "_ga",
-    "_fbp",
-  ];
+  const cookiesToRemove = ["_ga", "_fbp"];
 
   //-- Reset cookie preferences script --
-function resetConsent() {
-  // Remove custom consent cookie
-  document.cookie =
-    "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+  function resetConsent() {
+    // Remove custom consent cookie
+    document.cookie =
+      "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Directly delete the target cookies
-  document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-  document.cookie = "_ga_G41117455P=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-  document.cookie = "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+    // Directly delete the target cookies
+    document.cookie =
+      "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+    document.cookie =
+      "_ga_G41117455P=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+    document.cookie =
+      "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Reload to reset the consent state
-  location.reload();
-  console.log("Consent reset. GA and Meta cookies cleared.");
+    // Reload to reset the consent state
+    location.reload();
+    console.log("Consent reset. GA and Meta cookies cleared.");
+  }
 }
 //-- End Reset cookie preferences script --
