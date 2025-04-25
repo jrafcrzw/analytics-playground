@@ -96,13 +96,37 @@ function initConsentBanner() {
 }
 //-- End consent-banner script--
 
-//-- Reset coookie preferences script--
+//-- Reset cookie preferences script --
 function resetConsent() {
-  // Remove the consent cookie
+  // Remove custom consent cookie
   document.cookie =
     "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-  // Reload the page to reset the consent state and re-trigger the banner logic
+
+  // Known first-party cookie prefixes to remove
+  const cookiePrefixes = [
+    "_ga", // Google Analytics (includes _ga, _ga_<container>)
+    "_fbp", // Meta/Facebook Pixel
+  ];
+
+  // Optional: If other platforms are added in the future, include their prefixes here:
+  // _gcl     → Google Ads (e.g. _gcl_au)
+  // _uet     → Microsoft Ads (e.g. _uetvid, _uetsid)
+  // _tt_     → TikTok Pixel
+  // _li_     → LinkedIn Insight Tag
+  // _pin_    → Pinterest Tag
+
+  // Loop through cookies and remove those with matching prefixes
+  document.cookie.split(";").forEach((cookie) => {
+    const name = cookie.split("=")[0].trim();
+    cookiePrefixes.forEach((prefix) => {
+      if (name.startsWith(prefix)) {
+        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax`;
+      }
+    });
+  });
+
+  // Reload to reset the consent state
   location.reload();
-  console.log("Consent reset. Page reloaded.");
+  console.log("Consent reset. GA and Meta cookies cleared.");
 }
-//-- End Reset coookie preferences script--
+//-- End Reset cookie preferences script --
