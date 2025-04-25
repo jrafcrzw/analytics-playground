@@ -96,32 +96,41 @@ function initConsentBanner() {
 }
 //-- End consent-banner script--
 
-//-- Reset cookie preferences script --
+// 🛡️ Reset cookie preferences: deletes consent cookie + common tracking cookies
 function resetConsent() {
-  // Remove custom consent cookie
+  // Remove the custom consent cookie
   document.cookie =
     "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Known first-party cookie names/prefixes to remove
-  const cookiesToRemove = ["_ga", "_fbp"];
+  // Define common cookie prefixes used by GA and Meta (currently active)
+  const cookiePrefixes = ["_ga", "_fbp"];
 
-  //-- Reset cookie preferences script --
-  function resetConsent() {
-    // Remove custom consent cookie
-    document.cookie =
-      "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+  // Optionally check multiple paths to ensure cookies are removed regardless of how they were set
+  const pathsToTry = ["/", window.location.pathname];
 
-    // Directly delete the target cookies
-    document.cookie =
-      "_ga=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-    document.cookie =
-      "_ga_G41117455P=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-    document.cookie =
-      "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
+  // Loop through existing cookies and remove those matching known prefixes
+  document.cookie.split(";").forEach((cookie) => {
+    const name = cookie.split("=")[0].trim();
+    cookiePrefixes.forEach((prefix) => {
+      if (name.startsWith(prefix)) {
+        pathsToTry.forEach((path) => {
+          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}; SameSite=Lax`;
+        });
+      }
+    });
+  });
 
-    // Reload to reset the consent state
+  // 🔮 Future-proofing note:
+  // If additional platforms like TikTok, LinkedIn, Google Ads, Pinterest, etc. are added later,
+  // you should consider extending `cookiePrefixes` to include known patterns like:
+  // "_ttp" (TikTok), "_gcl_au" (Google Ads), "li_gc" (LinkedIn), "_pin_unauth" (Pinterest), etc.
+
+  // Wait briefly before reloading to ensure deletion takes effect before any tags re-set them
+  console.log(
+    "Consent reset. Attempted cookie deletion. Reloading in 300ms..."
+  );
+  setTimeout(() => {
     location.reload();
-    console.log("Consent reset. GA and Meta cookies cleared.");
-  }
+  }, 300);
 }
 //-- End Reset cookie preferences script --
