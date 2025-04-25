@@ -96,41 +96,24 @@ function initConsentBanner() {
 }
 //-- End consent-banner script--
 
-// 🛡️ Reset cookie preferences: deletes consent cookie + common tracking cookies
+//-- Reset cookie preferences script --
 function resetConsent() {
-  // Remove the custom consent cookie
+  // Remove the consent cookie
   document.cookie =
     "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Define common cookie prefixes used by GA and Meta (currently active)
-  const cookiePrefixes = ["_ga", "_fbp"];
+  // Remove Meta Pixel cookie (_fbp)
+  document.cookie =
+    "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Optionally check multiple paths to ensure cookies are removed regardless of how they were set
-  const pathsToTry = ["/", window.location.pathname];
+  // ⚠️ Future-proofing note:
+  // If additional platforms like Google Ads, TikTok, LinkedIn, Pinterest, etc. are added,
+  // you may need to remove their respective cookies too.
+  // Common prefixes include: "_ga", "_gid", "_gcl_", "_ttp", "_li_", "_pin_", etc.
+  // Some of these might not be deletable due to cookieless behavior or HttpOnly restrictions.
 
-  // Loop through existing cookies and remove those matching known prefixes
-  document.cookie.split(";").forEach((cookie) => {
-    const name = cookie.split("=")[0].trim();
-    cookiePrefixes.forEach((prefix) => {
-      if (name.startsWith(prefix)) {
-        pathsToTry.forEach((path) => {
-          document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${path}; SameSite=Lax`;
-        });
-      }
-    });
-  });
-
-  // 🔮 Future-proofing note:
-  // If additional platforms like TikTok, LinkedIn, Google Ads, Pinterest, etc. are added later,
-  // you should consider extending `cookiePrefixes` to include known patterns like:
-  // "_ttp" (TikTok), "_gcl_au" (Google Ads), "li_gc" (LinkedIn), "_pin_unauth" (Pinterest), etc.
-
-  // Wait briefly before reloading to ensure deletion takes effect before any tags re-set them
-  console.log(
-    "Consent reset. Attempted cookie deletion. Reloading in 300ms..."
-  );
-  setTimeout(() => {
-    location.reload();
-  }, 300);
+  // Reload the page to reset the consent state and re-trigger the banner logic
+  location.reload();
+  console.log("Consent reset. Page reloaded.");
 }
 //-- End Reset cookie preferences script --
