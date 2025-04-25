@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- 🛡️ Set Default Consent BEFORE GTM loads -->
+    <!-- 🛡️ Check Default Consent BEFORE GTM loads -->
     <script>
-      window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push(arguments);
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push(arguments);
       }
-
+    
       // Check for existing consent cookie
       var consentGiven = document.cookie.indexOf("consentGiven=true") !== -1;
-
+    
       if (consentGiven) {
-        gtag("consent", "default", {
+        gtag("consent", "update", {
           ad_storage: "granted",
+          analytics_storage: "granted",
+          functionality_storage: "granted",
+          personalization_storage: "granted",
+          security_storage: "granted",
           ad_user_data: "granted",
           ad_personalization: "granted",
-          analytics_storage: "granted",
-        });
-      } else {
-        gtag("consent", "default", {
-          ad_storage: "denied",
-          ad_user_data: "denied",
-          ad_personalization: "denied",
-          analytics_storage: "denied",
         });
       }
     </script>
