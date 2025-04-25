@@ -119,10 +119,8 @@ function resetConsent() {
   document.cookie = "_ga_G41117455P=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
   document.cookie = "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Add a significant delay for testing
-  console.log("Consent reset. Attempted direct cookie deletion. Reloading in 3000ms...");
-  setTimeout(() => {
-    location.reload();
-  }, 3000);
+  // Reload to reset the consent state
+  location.reload();
+  console.log("Consent reset. GA and Meta cookies cleared.");
 }
 //-- End Reset cookie preferences script --
