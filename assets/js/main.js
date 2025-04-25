@@ -102,41 +102,36 @@ function resetConsent() {
   document.cookie =
     "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Known first-party cookie prefixes to remove
-  const cookiePrefixes = [
-    "_ga", // Google Analytics (includes _ga, _ga_<container>)
-    "_ga_", // Specifically target _ga_<container> cookies
-    "_fbp", // Meta/Facebook Pixel
+  // Known first-party cookie names/prefixes to remove
+  const cookiesToRemove = [
+    "_ga",
+    "_fbp",
   ];
 
-  // Optional: If other platforms are added in the future, include their prefixes here:
-  // _gcl      → Google Ads (e.g. _gcl_au)
-  // _uet      → Microsoft Ads (e.g. _uetvid, _uetsid)
-  // _tt_      → TikTok Pixel
-  // _li_      → LinkedIn Insight Tag
-  // _pin_     → Pinterest Tag
+  // Function to delete a cookie by name, trying different paths
+  function deleteCookie(name) {
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax`;
+    // Try with the current path (in case it's more specific)
+    document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${window.location.pathname}; SameSite=Lax`;
+    // Try one level up in the path
+    const pathParts = window.location.pathname.split('/').slice(0, -1).join('/');
+    if (pathParts) {
+      document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=${pathParts}/; SameSite=Lax`;
+    }
+    // Optional: Try with a specific domain if you suspect that's the case
+    // const domain = document.domain;
+    // document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}; SameSite=Lax`;
+  }
 
-  // Loop through cookies and remove those with matching prefixes
-  document.cookie.split(";").forEach((cookie) => {
-    const name = cookie.split("=")[0].trim();
-    cookiePrefixes.forEach((prefix) => {
-      if (name.startsWith(prefix)) {
-        // Try deleting at the root path
-        document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax`;
-        // Optional: If cookies might be set on a specific subdomain, try that too
-        // const hostParts = location.hostname.split('.');
-        // if (hostParts.length > 1) {
-        //   const domain = `.${hostParts.slice(-2).join('.')}`;
-        //   document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=${domain}; SameSite=Lax`;
-        // }
-      }
-    });
+  // Loop through the cookies to remove
+  cookiesToRemove.forEach(cookieName => {
+    deleteCookie(cookieName);
   });
 
-  // Add a short delay to let the browser clear cookies before reload
-  console.log("Consent reset. Attempted cookie deletion. Reloading in 300ms...");
+  // Add a slightly longer delay to ensure cookie deletion
+  console.log("Consent reset. Attempted cookie deletion. Reloading in 500ms...");
   setTimeout(() => {
     location.reload();
-  }, 300);
+  }, 500);
 }
 //-- End Reset cookie preferences script --
