@@ -102,16 +102,6 @@ function resetConsent() {
   document.cookie =
     "consentGiven=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
 
-  // Remove Meta Pixel cookie (_fbp)
-  document.cookie =
-    "_fbp=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; SameSite=Lax";
-
-  // ⚠️ Future-proofing note:
-  // If additional platforms like Google Ads, TikTok, LinkedIn, Pinterest, etc. are added,
-  // you may need to remove their respective cookies too.
-  // Common prefixes include: "_ga", "_gid", "_gcl_", "_ttp", "_li_", "_pin_", etc.
-  // Some of these might not be deletable due to cookieless behavior or HttpOnly restrictions.
-
   // Reload the page to reset the consent state and re-trigger the banner logic
   location.reload();
   console.log("Consent reset. Page reloaded.");
