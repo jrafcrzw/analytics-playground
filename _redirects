@@ -1,1 +1,2 @@
-/* https://analytics-playground.stream/:splat 301
+# Only redirect requests coming to the default Cloudflare domain
+https://analytics-playground.pages.dev/* https://analytics-playground.stream/:splat 301
