@@ -2,7 +2,8 @@
 
 A minimal 3-page static website built as a **testing environment** for advanced web analytics and event-based tracking.
 
-Hosted on [Cloudflare Pages](https://analytics-playground.pages.dev/)
+Hosted on Cloudflare Pages
+[https://analytics-playground.stream/]
 
 ---
 
@@ -51,7 +52,9 @@ Tags will be added manually and tested live for proper loading, triggering, and 
 
 - HTML (vanilla, no framework)
 - TailwindCSS (CDN)
-- Third-party form service (embedded)
+- GTM & sGTM
+- Stape.io
+- Google Cloud Platform
 
 ---
 
